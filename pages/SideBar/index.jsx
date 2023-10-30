@@ -1,5 +1,5 @@
+// sidebar
 import React, { memo } from "react";
-// import { Carousel } from "@material-tailwind/react";
 import { ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
@@ -16,7 +16,11 @@ const classNames = require("classnames");
 
 function Sidebar() {
   const Category = [
-    { name: "Woman’s Fashion", href: "#", icon: <ChevronRight /> },
+    {
+      name: "Woman’s Fashion",
+      href: "#",
+      icon: <ChevronRight />,
+    },
     { name: "Men’s Fashion", href: "#", icon: <ChevronRight /> },
     { name: "Electronics", href: "#" },
     { name: "Home & Lifestyle", href: "#" },
@@ -39,35 +43,22 @@ function Sidebar() {
       <div className={styles.border}>
         <ul
           className={classNames(
-            "flex-none mt-14 font-poppins font-size text-text-2 shadow-sm ",
+            "flex-none mt-14 font-poppins font-size text-text-2  ",
             styles.sidebar,
           )}
         >
-          {/* <li className="mb-4 flex w-full">
-            <p className=" w-auto">Woman’s Fashion</p>
-
-            <p className="flex justify-end w-full">
-              <ChevronRight />
-            </p>
-          </li>
-          <li className="mb-4 flex">
-            Men’s Fashion
-            <p className="flex justify-end w-full">
-              <ChevronRight />
-            </p>
-          </li> */}
           <li>
             {Category.map((item) => {
               return (
                 <p
                   key={`${item.name}`}
-                  className={`w-full mb-4 ${
-                    item.icon ? "flex justify-between" : ""
+                  className={`w-full mb-4  ${
+                    item.icon ? "flex justify-between " : ""
                   }`}
                 >
                   <a
                     href={item.href}
-                    className=" block text-black  hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0"
+                    className=" block text-black hover:text-slate-500 md:p-0 lg:w-96"
                     aria-current="page"
                   >
                     {item.name}
@@ -85,8 +76,7 @@ function Sidebar() {
         <Swiper
           modules={[Autoplay, Navigation, Pagination]}
           autoplay={{ delay: 3000 }}
-          navigation
-          //   pagination={{ clickable: true }}
+          //   navigation
           scrollbar={{ draggable: true }}
         >
           {listSlider.map((item, index) => {
